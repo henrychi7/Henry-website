@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  color: #fff;
+  background: #193d32 url("images/nature1.jpg") center center / cover fixed no-repeat;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(10, 34, 27, 0.78), rgba(10, 34, 27, 0.2));
+  content: "";
+}
+
+.site-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  min-width: 0;
+  padding: clamp(2rem, 8vw, 7rem);
+}
+
+.hero-content {
+  width: min(100%, 680px);
+  text-align: left;
+}
+
+.eyebrow {
+  margin-bottom: 1rem;
+  color: #c5e7bd;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero-content h1 {
+  max-width: 680px;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.95;
+}
+
+.hero-content .lead {
+  max-width: 540px;
+  margin: 1.5rem 0 2rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.sidebar {
+  width: 280px;
+  min-height: 100vh;
+  background-color: rgba(12, 30, 25, 0.9) !important;
+  backdrop-filter: blur(10px);
+}
+
+.sidebar .nav-link {
+  border-radius: 0.5rem;
+}
+
+.sidebar .nav-link.active {
+  background-color: #77a96d;
+  color: #10251d !important;
+}
+
+@media (max-width: 767.98px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .site-layout {
+    flex-direction: column;
+  }
+
+  .main-content {
+    min-height: calc(100vh - 82px);
+    padding: 4rem 1.5rem;
+  }
+
+  .sidebar {
+    order: -1;
+    width: 100%;
+    min-height: auto;
+  }
+
+  .sidebar .nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.25rem;
+  }
+
+  .sidebar hr,
+  .sidebar .dropdown {
+    display: none;
+  }
+}
